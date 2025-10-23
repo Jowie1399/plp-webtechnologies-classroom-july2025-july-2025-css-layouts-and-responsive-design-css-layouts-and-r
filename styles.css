@@ -1,0 +1,361 @@
+/* ==========================================================================
+   style.css — Responsive layout with Flexbox + Grid
+   - Clear, maintainable structure
+   - Variables, layout helpers, and component styles
+   - Breakpoints: mobile-first, then tablet and desktop
+   ========================================================================== */
+
+/* -------------------------
+   CSS Variables (theme)
+   ------------------------- */
+:root{
+  --space-xs: 6px;
+  --space-sm: 12px;
+  --space-md: 18px;
+  --space-lg: 28px;
+
+  --color-primary: #0b74d1;
+  --color-accent: #0bbfae;
+  --color-muted: #6b6b6b;
+  --bg: #f6f8fa;
+  --surface: #ffffff;
+  --radius: 10px;
+  --container-max: 1100px;
+}
+
+/* -------------------------
+   Global Reset & Helpers
+   ------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: #222;
+  line-height: 1.5;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+/* Utility: visually hidden (for accessible captions etc.) */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0,0,0,0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  left: 10px;
+  top: 10px;
+  width: auto;
+  height: auto;
+  padding: var(--space-sm);
+  background: var(--color-primary);
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* -------------------------
+   Header (Flexbox)
+   ------------------------- */
+.site-header {
+  background: var(--surface);
+  box-shadow: 0 2px 6px rgba(10,10,10,0.04);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+.header-inner {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) 0;
+}
+
+/* Brand area */
+.brand h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--color-primary);
+}
+.tagline {
+  margin: 2px 0 0;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+/* Navigation styled as horizontal flex row */
+.primary-nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--space-sm);
+  margin: 0;
+  padding: 0;
+}
+.primary-nav a {
+  display: inline-block;
+  padding: 8px 12px;
+  color: var(--color-primary);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+}
+.primary-nav a:hover,
+.primary-nav a:focus {
+  background: rgba(11,116,209,0.08);
+  outline: none;
+}
+
+/* -------------------------
+   Hero (Grid)
+   ------------------------- */
+.hero {
+  margin-top: var(--space-lg);
+  padding-bottom: var(--space-lg);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+  padding: var(--space-md) 0;
+  background: linear-gradient(180deg, rgba(11,116,209,0.03), transparent);
+  border-radius: var(--radius);
+}
+
+/* hero content */
+.hero-content h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+.hero-content p {
+  color: var(--color-muted);
+}
+
+/* CTA */
+.cta {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  padding: 10px 16px;
+  background: var(--color-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+/* Hero media (image) */
+.hero-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* -------------------------
+   Feature grid (Grid)
+   ------------------------- */
+.features {
+  margin-top: var(--space-lg);
+}
+
+.feature-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;        /* mobile-first: single column */
+  gap: var(--space-md);
+  padding: 0;
+  margin: var(--space-md) 0 0 0;
+}
+
+.feature-card {
+  background: var(--surface);
+  border-radius: 10px;
+  padding: var(--space-md);
+  box-shadow: 0 2px 6px rgba(3,3,3,0.03);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.feature-card h3 {
+  margin: 0 0 8px 0;
+  color: var(--color-primary);
+}
+
+/* -------------------------
+   Examples grid with explicit columns
+   ------------------------- */
+.example-grid {
+  margin-top: var(--space-md);
+  display: grid;
+  grid-template-columns: 1fr; /* mobile-first */
+  gap: var(--space-md);
+}
+.example {
+  background: linear-gradient(180deg, #ffffff, #fbfdff);
+  padding: var(--space-md);
+  border-radius: var(--radius);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+/* -------------------------
+   Contact form (Flexbox columns on wider screens)
+   ------------------------- */
+.contact-form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.contact-form label {
+  display: block;
+  margin-top: var(--space-sm);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.form-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+.form-actions button {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+.form-actions button[type="submit"] {
+  background: var(--color-primary);
+  color: white;
+}
+.form-actions button[type="reset"] {
+  background: #efefef;
+}
+
+/* -------------------------
+   Footer (Flexbox)
+   ------------------------- */
+.site-footer {
+  margin-top: var(--space-lg);
+  padding: var(--space-md) 0;
+  background: var(--surface);
+  border-top: 1px solid rgba(0,0,0,0.04);
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+.site-footer nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--space-sm);
+  margin: 0;
+  padding: 0;
+}
+.site-footer a { color: var(--color-primary); text-decoration: none; }
+
+/* -------------------------
+   Responsive breakpoints
+   - Tablet: >= 720px
+   - Desktop: >= 1024px
+   ------------------------- */
+
+/* Tablet & up: two-column hero, features grid two columns */
+@media (min-width: 720px) {
+  .hero-grid {
+    grid-template-columns: 1fr 1fr; /* text + media side-by-side */
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .example-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .header-inner {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+}
+
+/* Desktop & up: wider layout and 3-column feature grid */
+@media (min-width: 1024px) {
+  .feature-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .example-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
+}
+
+/* Large screens: slightly increase gutters */
+@media (min-width: 1280px) {
+  :root {
+    --space-lg: 36px;
+  }
+}
+
+/* -------------------------
+   Small-screen polish
+   ------------------------- */
+@media (max-width: 419px) {
+  .primary-nav ul {
+    gap: 8px;
+  }
+  .brand h1 {
+    font-size: 1rem;
+  }
+  .cta {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  }
