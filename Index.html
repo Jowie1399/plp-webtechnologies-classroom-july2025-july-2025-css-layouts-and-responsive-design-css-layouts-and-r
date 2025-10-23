@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Responsive Layout — Flexbox & Grid Demo</title>
+  <meta name="description" content="Demo page showing Flexbox and Grid with responsive breakpoints and accessible semantic HTML5 structure." />
+
+  <!-- Link to the responsive stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Header / site identity -->
+  <header class="site-header" role="banner" aria-label="Site header">
+    <div class="container header-inner">
+      <div class="brand">
+        <h1>FlexGrid Demo</h1>
+        <p class="tagline">Responsive design with Flexbox &amp; Grid</p>
+      </div>
+
+      <!-- Primary navigation (Flexbox used in CSS) -->
+      <nav class="primary-nav" role="navigation" aria-label="Primary">
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#examples">Examples</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero area using Grid (image + text) -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h2 id="hero-heading">Responsive Layouts Made Simple</h2>
+        <p>Combine Flexbox and CSS Grid to build flexible, maintainable layouts that adapt across devices. This page demonstrates a typical real-world pattern: a header with nav, a hero area, a feature grid, and a responsive footer.</p>
+        <p><a class="cta" href="#features">See features</a></p>
+      </div>
+
+      <figure class="hero-media" role="img" aria-label="Illustration of responsive layout">
+        <img src="https://via.placeholder.com/800x500.png?text=Responsive+Design" alt="Illustration showing a sample responsive layout" width="800" height="500">
+        <figcaption class="visually-hidden">Illustration: Responsive layout sample</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <main id="main" role="main">
+    <div class="container">
+
+      <!-- Features: Grid of cards -->
+      <section id="features" class="features" aria-labelledby="features-heading">
+        <h2 id="features-heading">Core Features</h2>
+
+        <ul class="feature-grid" role="list">
+          <li class="feature-card">
+            <h3>Flexbox Navigation</h3>
+            <p>Use Flexbox for simple one-dimensional layouts like navs, toolbars, and small card-row alignments.</p>
+          </li>
+
+          <li class="feature-card">
+            <h3>Responsive Grid</h3>
+            <p>Use CSS Grid for two-dimensional layouts — perfect for card layouts, hero sections and complex pages.</p>
+          </li>
+
+          <li class="feature-card">
+            <h3>Media Queries</h3>
+            <p>Define sensible breakpoints to reflow content across phone, tablet and desktop using media queries.</p>
+          </li>
+
+          <li class="feature-card">
+            <h3>Accessibility</h3>
+            <p>Semantic HTML elements, landmarks and skip links help assistive technologies navigate your content.</p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Examples: Grid demonstration with explicit column control -->
+      <section id="examples" class="examples" aria-labelledby="examples-heading">
+        <h2 id="examples-heading">Layout Examples</h2>
+
+        <!-- Example grid: show how items reflow across breakpoints -->
+        <div class="example-grid">
+          <article class="example">
+            <h4>Example 1</h4>
+            <p>Three-column layout on desktop, two on tablet, one on mobile.</p>
+          </article>
+
+          <article class="example">
+            <h4>Example 2</h4>
+            <p>Card layout that maintains consistent gutters and sizing.</p>
+          </article>
+
+          <article class="example">
+            <h4>Example 3</h4>
+            <p>Footer area that stays at the bottom but adapts to small screens.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Simple contact form showcasing a Flexbox form layout -->
+      <section id="contact" class="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact</h2>
+        <form class="contact-form" action="#" method="post" novalidate>
+          <fieldset>
+            <legend>Send a message</legend>
+
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" placeholder="Jane Doe" required>
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="name@example.com" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Write your message" minlength="10"></textarea>
+
+            <div class="form-actions">
+              <button type="submit">Send</button>
+              <button type="reset">Reset</button>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer (Flexbox) -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <small>&copy; 2025 FlexGrid Demo</small>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="#top">Top</a></li>
+          <li><a href="#features">Features</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
